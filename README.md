@@ -1,6 +1,18 @@
-# Getting Started with Create React App
+# react-redux-shopping-cart
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Create a React Redux App
+
+This project was use react-redux with [Create a React Redux App](https://redux.js.org/introduction/getting-started).
+
+# Getting Started with Redux
+
+npm install @reduxjs/toolkit
+npm install react-redux
+npm install redux
+
+# live preview:
+
+https://react-redux-shopping-cart.thind9x.repl.co/
 
 ## Available Scripts
 
