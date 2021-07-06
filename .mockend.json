@@ -1,5 +1,5 @@
 {
-    "products": {
+    "Products": {
       "title": "string",
       "description":"string",
       "views": "int",
