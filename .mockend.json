@@ -1,7 +1,9 @@
 {
-    "Post": {
+    "products": {
       "title": "string",
+      "description":"string",
       "views": "int",
+      "price":"float",
       "published": "boolean",
       "createdAt": "date"
     }
