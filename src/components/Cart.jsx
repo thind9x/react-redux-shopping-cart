@@ -2,7 +2,10 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import AddCircleIcon from "@material-ui/icons/AddCircle";
+import RemoveCircleIcon from "@material-ui/icons/RemoveCircle";
+import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCart";
+import ShopIcon from "@material-ui/icons/Shop";
 const Cart = ({ getcart, dispatch }) => {
   console.log(getcart.products);
   console.log(getcart.carts);
@@ -21,13 +24,27 @@ const Cart = ({ getcart, dispatch }) => {
   }, []);
   return (
     <div className="container">
-      <Link to="/">Product</Link>
+      <Link to="/">
+        <ShopIcon style={{ fontSize: 40 }} />
+      </Link>
 
       <div className="row">
         {getcart.carts.map((item) => (
           <div key={item.id} className="col-sm-3">
-            <p>{item.name}</p>
-            <button
+            <p>
+              {item.name} ({getcart.numberCart})
+            </p>
+            <AddCircleIcon
+              onClick={() => {
+                dispatch({
+                  type: "INCREASE_QUANTITY",
+                  payload: item.quantity + 1,
+                });
+              }}
+            />{" "}
+            <RemoveCircleIcon />
+            <RemoveShoppingCartIcon
+              style={{ cursor: "pointer" }}
               onClick={() => {
                 dispatch({
                   type: "DELETE_CART",
@@ -36,12 +53,9 @@ const Cart = ({ getcart, dispatch }) => {
               }}
             >
               Remove from cart
-            </button>
+            </RemoveShoppingCartIcon>
           </div>
         ))}
-      </div>
-      <div>
-        <h3>My Cart</h3>
       </div>
     </div>
   );

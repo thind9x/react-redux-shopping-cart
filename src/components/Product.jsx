@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 const Product = ({ getcart, dispatch }) => {
   console.log(getcart.products);
   console.log(getcart.carts);
@@ -25,21 +27,25 @@ const Product = ({ getcart, dispatch }) => {
   }, []);
   return (
     <div className="container">
-      <Link to="/cart">My Cart</Link> ({getcart.numberCart})
-      <div className="row">
+      <Link style={{ float: "right" }} to="/cart">
+        <ShoppingCartIcon style={{ cursor: "pointer", fontSize: 40 }} />(
+        {getcart.numberCart})
+      </Link>{" "}
+      <div className="row" style={{ marginTop: "5%" }}>
+        <h3>Shopping Cart </h3>
         {getcart.products.map((item) => (
           <div key={item.id} className="col-sm-3">
             <p>{item.title}</p>
-            <button
+
+            <AddShoppingCartIcon
+              style={{ cursor: "pointer" }}
               onClick={() => {
                 dispatch({
                   type: "ADD_CART",
                   payload: item,
                 });
               }}
-            >
-              Add to cart
-            </button>
+            />
           </div>
         ))}
       </div>
