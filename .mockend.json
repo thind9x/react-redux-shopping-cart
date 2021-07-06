@@ -1,10 +1,16 @@
 {
-    "Products": {
+    "Post": {
       "title": "string",
-      "description":"string",
       "views": "int",
-      "price":"float",
       "published": "boolean",
       "createdAt": "date"
-    }
+    },
+    "Products": {
+        "title": "string",
+        "description":"string",
+        "views": "int",
+        "price":"float",
+        "published": "boolean",
+        "createdAt": "date"
+      }
   }
